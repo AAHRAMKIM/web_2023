@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fixed position 속성 활용</title>
+    <style>
+        .container { width: 600px;
+            height: 1000px;
+            border: 2px solid black; }
+        .pos { width: 150px;
+              height: 80px;
+              top: 100px;
+              left: 200px; }
+        .static { position: static;
+                  background-color: #9ec5fe;
+                  border: 1px solid black; }
+        .fixed { position: fixed; }
+
+    </style>
+</head>
+<body>
+<h3>이미지의 고정 위치 지정</h3>
+<div class="container">
+    <div class="static pos">정적 위치 컨텐츠</div>
+    <div class="fixed pos">
+        <img src="images/coffee.png" style="width:150px;">
+    </div>
+</div>
+</body>
+</html>
+
+
