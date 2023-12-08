@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트 프로그래밍</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script>
+    function binToHex() {
+        var bin = document.getElementById("binary").value;
+        document.getElementById('hexadecimal').value = parseInt(bin, 2).toString(16).toUpperCase();
+    }
+    function pascal() {
+            var n = document.getElementById('height').value;
+            var triangle = [];
+            for (var i = 0; i < n; i++) {
+                triangle[i] = [];
+                for (var j = 0; j < i+1; j++) {
+                    if (j === 0 || j === i) {
+                        triangle[i][j] = 1;
+                    } else {
+                        triangle[i][j] = triangle[i - 1][j - 1] + triangle[i - 1][j];
+                    }
+                }
+            }
+            document.getElementById('domain').innerText = triangle.map(row => row.join(' ')).join('\n');
+        }
+    </script>
+</head>
+<body>
+<div class="container mt-5">
+    <div class="h3">2진수 변환기</div>
+    <div class="mb-3">
+        <label class="form-label text-primary">2진수:
+            <input type="text" id="binary">
+        </label>
+        <button type="button" class="btn btn-dark" onclick="binToHex()">===></button>
+        <label class="form-label text-primary">16진수:
+            <input type="text" id="hexadecimal" readonly>
+        </label>
+    </div>
+    <hr>
+    <div class="h3">파스칼 삼각형</div>
+    <div class="mb-3">
+        <label class="form-label text-primary">삼각형 높이
+            <input type="number" id="height">
+        </label>
+        <button type="button" class="btn btn-success" onclick="pascal()">그리기</button>
+    </div>
+    <div class="text-bg-secondary" id="domain"></div>
+</div>
+</body>
+</html>
